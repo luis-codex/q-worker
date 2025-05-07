@@ -1,0 +1,83 @@
+{
+  "name": "sw-worker",
+  "version": "0.0.6",
+  "description": "Librería para comunicación entre cliente y worker en entornos de navegador y extensiones.",
+  "type": "module",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "worker",
+    "client",
+    "typescript",
+    "javascript",
+    "web-worker",
+    "browser",
+    "extension",
+    "communication",
+    "routing",
+    "requests",
+    "responses",
+    "modular",
+    "flexible",
+    "runtime",
+    "api",
+    "framework",
+    "library",
+    "frontend",
+    "backend",
+    "web-development",
+    "typescript-library",
+    "npm-package",
+    "Qbytes"
+  ],
+  "author": "Luis Tenorio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luis-codex/sw-worker"
+  },
+  "license": "ISC",
+  "homepage": "https://sw-worker.qbytes.dev",
+  "packageManager": "pnpm@10.5.2",
+  "devDependencies": {
+    "@types/chrome": "^0.0.320",
+    "@types/node": "^22.15.14",
+    "terser": "^5.39.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./client": {
+      "import": "./dist/esm/client.js",
+      "types": "./dist/client.d.ts"
+    },
+    "./worker": {
+      "import": "./dist/esm/worker.js",
+      "types": "./dist/worker.d.ts"
+    },
+    "./vite": {
+      "import": "./dist/esm/vite.js",
+      "types": "./dist/vite.d.ts"
+    }
+  },
+  "tsup": {
+    "entry": {
+      "vite": "src/core/vite/index.ts",
+      "client": "src/core/sw-worker/client/index.ts",
+      "worker": "src/core/sw-worker/worker/index.ts"
+    },
+    "outDir": "dist",
+    "format": [
+      "esm"
+    ],
+    "clean": true,
+    "dts": true,
+    "minify": "terser",
+    "treeshake": true,
+    "legacyOutput": true
+  }
+}

@@ -1,0 +1,14 @@
+node_modules/
+
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+src
+
+.vscode
+.idea
+.gitignore
+
+.DS_Store
+Thumbs.db
