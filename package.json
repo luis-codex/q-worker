@@ -1,10 +1,10 @@
 {
   "name": "sw-worker",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Librería para comunicación entre cliente y worker en entornos de navegador y extensiones.",
   "type": "module",
   "scripts": {
-    "build": "tsup"
+    "build": "rm -rf dist && tsc"
   },
   "keywords": [
     "worker",
@@ -42,42 +42,23 @@
   "devDependencies": {
     "@types/chrome": "^0.0.320",
     "@types/node": "^22.15.14",
-    "terser": "^5.39.0",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "typescript": "^5.8.3"
   },
   "files": [
     "dist"
   ],
   "exports": {
     "./client": {
-      "import": "./dist/esm/client.js",
-      "types": "./dist/client.d.ts"
-    },
-    "./worker": {
-      "import": "./dist/esm/worker.js",
-      "types": "./dist/worker.d.ts"
+      "import": "./dist/core/sw-worker/client/index.js",
+      "types": "./dist/core/sw-worker/client/index.d.ts"
     },
     "./vite": {
-      "import": "./dist/esm/vite.js",
-      "types": "./dist/vite.d.ts"
-    }
-  },
-  "tsup": {
-    "entry": {
-      "vite": "./src/core/vite/index.ts",
-      "client": "./src/core/sw-worker/client/index.ts",
-      "worker": "./src/core/sw-worker/worker/index.ts"
+      "import": "./dist/core/vite/index.js",
+      "types": "./dist/core/vite/index.d.ts"
     },
-    "outDir": "dist",
-    "format": [
-      "esm"
-    ],
-    "clean": true,
-    "dts": true,
-    "minify": "terser",
-    "treeshake": true,
-    "legacyOutput": true
+    "./worker": {
+      "import": "./dist/core/sw-worker/worker/index.js",
+      "types": "./dist/core/sw-worker/worker/index.d.ts"
+    }
   }
 }
