@@ -1,6 +1,6 @@
 {
   "name": "sw-worker",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Librería para comunicación entre cliente y worker en entornos de navegador y extensiones.",
   "type": "module",
   "scripts": {
@@ -66,9 +66,9 @@
   },
   "tsup": {
     "entry": {
-      "vite": "src/core/vite/index.ts",
-      "client": "src/core/sw-worker/client/index.ts",
-      "worker": "src/core/sw-worker/worker/index.ts"
+      "vite": "./src/core/vite/index.ts",
+      "client": "./src/core/sw-worker/client/index.ts",
+      "worker": "./src/core/sw-worker/worker/index.ts"
     },
     "outDir": "dist",
     "format": [
